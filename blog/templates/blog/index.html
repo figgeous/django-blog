@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Thomas' Blog
+{% endblock title %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'blog/post.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/index.css' %}">
+{% endblock css_files %}
+
+{% block content %}
+   
+    <section id="welcome">
+        <header>
+            <img src=" {% static 'blog/images/tom.jpg' %}" alt= "Tom - The author of this blog">
+            <h2> THOMAS' BLOG </h2>
+        </header>
+    
+        <p> This is the first blog I've created using Django. It features a 
+            “read later” feature and each post has tags and a comment 
+            section. Source code can be found 
+            <a href= https://github.com/figgeous/django-blog> here</a>
+        </p>
+    </section>
+
+    <section id="latest-posts">
+        <h2>My latest thoughts></h2>
+
+        <ul>
+            {% for post in posts %}
+                {% include "blog/includes/post.html" %}
+            {% endfor %}
+        </ul>
+    </section>
+
+    <section id="about">
+        <h2>What I do</h2>
+        <p>I love programming, playing music, chess and exploring new technologies!</p>
+        <p>My goal is to keep on growing as a developer</p>
+
+{% endblock content %}
